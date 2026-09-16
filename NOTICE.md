@@ -18,7 +18,7 @@ Copyright (c) 2026 simkoon
 
 The Korean additions are distributed under the same MIT terms in LICENSE.
 
-This is an unofficial adaptation, not an official translation or an endorsement by the upstream author. The editing workflow and pattern families are adapted from upstream. Korean examples, Korean grammar guidance, genre safeguards, documentation and test fixtures were written for this project with AI assistance. The English examples were not translated wholesale. Version 0.1.0 is this project's version, not the upstream version.
+This is an unofficial adaptation, not an official translation or an endorsement by the upstream author. The editing workflow and pattern families are adapted from upstream. Korean examples, Korean grammar guidance, genre safeguards, documentation and test fixtures were written for this project with AI assistance. The English examples were not translated wholesale. Version 0.2.0 is this project's version, not the upstream version. Research summaries are newly written with source links; no third-party paper text, figures, datasets or code are redistributed. External works retain their own licenses.
 
 Notable differences:
 

@@ -60,6 +60,22 @@ class PackageTests(unittest.TestCase):
                 self.assertEqual(re.findall(pattern, c['input']),
                                  re.findall(pattern, c['reference']))
 
+    def test_v02_minimal_edit_contract(self):
+        self.assertIn('version: "0.2.0"', self.skill)
+        self.assertEqual(self.skill.count('- 근거:'), 25)
+        for text in ['최소 수정', '되돌린다', '탐지기 점수', '열거·삽입·대조']:
+            self.assertIn(text, self.skill)
+        cases = json.loads((ROOT / 'examples/minimal-edit.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(cases), 8)
+        self.assertEqual(len({c['id'] for c in cases}), 8)
+        for case in cases:
+            with self.subTest(case=case['id']):
+                self.assertTrue(case['criterion'])
+                self.assertTrue(case['reference'])
+                if case.get('unchanged'):
+                    self.assertEqual(case['input'], case['reference'])
+        self.assertEqual(sum(bool(c.get('unchanged')) for c in cases), 6)
+
     def test_local_markdown_links(self):
         for doc in ROOT.glob('*.md'):
             for link in re.findall(r'\]\(([^)]+)\)', doc.read_text(encoding='utf-8')):

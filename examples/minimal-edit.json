@@ -1,0 +1,10 @@
+[
+  {"id":"commas-unneeded","input":"설정을 읽고, 값을 검사한 뒤, 저장합니다.","reference":"설정을 읽고 값을 검사한 뒤 저장합니다.","criterion":"불필요한 쉼표만 줄이고 작업 순서와 높임을 유지한다."},
+  {"id":"commas-list-keep","input":"필수 항목은 이름, 주소, 연락처입니다.","reference":"필수 항목은 이름, 주소, 연락처입니다.","criterion":"열거에 필요한 쉼표는 그대로 둔다.","unchanged":true},
+  {"id":"long-condition-keep","input":"네트워크가 끊겼더라도 로컬 저장이 완료되었고 사용자가 재전송에 동의한 경우에만 서버에 다시 전송합니다.","reference":"네트워크가 끊겼더라도 로컬 저장이 완료되었고 사용자가 재전송에 동의한 경우에만 서버에 다시 전송합니다.","criterion":"길다는 이유로 분리하지 않는다. 두 조건의 결합과 경우에만을 보존한다.","unchanged":true},
+  {"id":"formal-endings-keep","input":"자료를 검토했습니다. 일부 값은 확인 중입니다. 결과는 금요일에 공유하겠습니다.","reference":"자료를 검토했습니다. 일부 값은 확인 중입니다. 결과는 금요일에 공유하겠습니다.","criterion":"공식 메일의 종결이 비슷해도 임의로 바꾸지 않는다.","unchanged":true},
+  {"id":"nominal-headings-keep","input":"## 변경 사항\n- 설정 검토\n- 로그 보관 기간 확인","reference":"## 변경 사항\n- 설정 검토\n- 로그 보관 기간 확인","criterion":"개조식의 명사형을 서술문으로 강제 변환하지 않는다.","unchanged":true},
+  {"id":"paragraph-duplicate","input":"같은 요청은 다시 처리하지 않습니다. 동일한 요청을 중복으로 처리하지 않는다는 뜻입니다.","reference":"같은 요청은 다시 처리하지 않습니다.","criterion":"독립적인 근거가 없는 재진술만 제거한다."},
+  {"id":"similar-distinct-claims","input":"평일에는 요청을 즉시 처리합니다. 주말에는 요청을 월요일에 처리합니다.","reference":"평일에는 요청을 즉시 처리합니다. 주말에는 요청을 월요일에 처리합니다.","criterion":"구조가 같아도 조건이 다른 주장은 중복이 아니다.","unchanged":true},
+  {"id":"no-word-ban","input":"안전 기준을 면밀히 검토했습니다. 이를 통해 누락된 점검 항목을 찾았습니다.","reference":"안전 기준을 면밀히 검토했습니다. 이를 통해 누락된 점검 항목을 찾았습니다.","criterion":"감시 어휘의 등장만으로 수정하지 않는다.","unchanged":true}
+]
