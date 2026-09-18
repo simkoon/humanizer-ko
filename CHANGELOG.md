@@ -1,5 +1,11 @@
 # 변경 이력
 
+## Unreleased
+
+- Agent Skills 표준 및 `npx skills add simkoon/humanizer-ko` 설치 안내 추가.
+- 격리된 임시 환경의 Skills CLI 탐색·설치 smoke test와 CI 추가.
+- 한국어 편집 규칙과 스킬 버전은 0.2.0 그대로 유지.
+
 ## 0.2.0 — 2026-09-16
 
 - 최소 수정을 기본으로 명시하고 불필요한 변경을 되돌리는 검사를 추가.

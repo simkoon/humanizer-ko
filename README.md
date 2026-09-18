@@ -32,7 +32,32 @@
 
 ## 설치
 
-### Claude Code
+### 권장: Skills CLI
+
+Node.js와 npm(`npx`)이 설치된 터미널에서 실행합니다.
+
+```sh
+npx skills add simkoon/humanizer-ko
+```
+
+안내에 따라 사용할 에이전트를 선택합니다. 기본은 **현재 프로젝트에 설치**입니다. 모든 프로젝트에서 쓰려면 `-g`를 붙입니다. 기존에 같은 이름의 스킬이 있으면 먼저 내용을 확인하세요.
+
+```sh
+# 설치하지 않고 스킬 목록 확인
+npx skills add simkoon/humanizer-ko --list
+
+# Claude Code에 사용자 공통 설치
+npx skills add simkoon/humanizer-ko -g -a claude-code
+
+# Codex에 사용자 공통 설치
+npx skills add simkoon/humanizer-ko -g -a codex
+```
+
+설치 후 Claude Code에서는 `/humanizer-ko`, Codex에서는 `$humanizer-ko`로 요청할 수 있습니다. 목록에 나타나지 않으면 새 세션을 여세요. 클라이언트별 지원 방식은 다를 수 있습니다.
+
+이 저장소는 [Agent Skills 표준](https://agentskills.io/specification)의 `SKILL.md` 형식으로 배포됩니다. npm 패키지를 별도로 배포하는 방식이 아니라, [Skills CLI](https://github.com/vercel-labs/skills)가 GitHub 저장소의 스킬을 설치합니다. 외부 스킬의 내용과 출처를 검토한 뒤 설치하세요.
+
+### 수동 설치: Claude Code
 
 사용자 스킬 디렉터리에 복제합니다. 기존 경로가 있으면 덮어쓰지 말고 먼저 내용을 확인하세요.
 
@@ -65,7 +90,7 @@ humanizer-ko/SKILL.md의 기준으로 아래 글을 다듬어줘.
 <원문>...</원문>
 ```
 
-자동 설치 스크립트와 다른 에이전트의 설정 변경은 포함하지 않습니다. 이 저장소를 만드는 과정에서 사용자의 기존 스킬은 교체하지 않았습니다.
+이 스킬 자체는 설치 시 실행되는 훅이나 자동 실행 코드를 포함하지 않습니다. Skills CLI는 선택한 에이전트의 스킬 디렉터리에 파일 또는 심볼릭 링크를 만듭니다.
 
 ## 원본과 다른 점
 
@@ -86,6 +111,18 @@ python3 -m unittest discover -s tests -v
 ```
 
 자동 검사는 패키지 구조, 규칙 수, 필수 안전장치, 예제 데이터와 보호 문자열을 검사합니다. **LLM을 호출하거나 한국어 편집 품질을 자동으로 입증하지 않습니다.** 모델별 동작 검증 방법은 [tests/README.md](tests/README.md)를 참고하세요. 예제의 개선문은 작성한 기준 예시이며, 특정 모델의 실행 결과로 표시하지 않습니다.
+
+설치 호환성도 별도로 확인할 수 있습니다(Node.js/npm 및 네트워크 필요). 아래 검사는 임시 HOME과 프로젝트에만 설치하며 기존 사용자 스킬을 변경하지 않습니다.
+
+```sh
+# 공개 GitHub 배포본 검사
+python3 tests/smoke_install.py
+
+# 로컬 소스 검사
+python3 tests/smoke_install.py .
+```
+
+Skills CLI 버전을 고정해 스킬 탐색, Claude Code·Codex 프로젝트 설치, 지침·참조문서·라이선스 보존을 검사합니다. 이 검사는 모델의 실제 편집 품질을 평가하지 않습니다.
 
 ## 구성
 
